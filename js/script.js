@@ -1,9 +1,14 @@
-
-//soundManager.onready(buildSoundboard);
+/*
+soundManager.setup({
+  consoleOnly: true,
+  url: "/swf/",
+  flashVersion: 9,
+  onready: function() {
+    // Ready to use; soundManager.createSound() etc. can now be called.
+  }
+});
 
 $(function(){
-	soundManager.url = '/swf/';
-	soundManager.flashVersion = 9;
 	
 	$('.soundlist a').click(function(e){
 		e.preventDefault();
@@ -30,3 +35,4 @@ $(function(){
 		}
 	});
 });
+*/
