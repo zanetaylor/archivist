@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}{{ item.metadata.title[0] }}{% endblock %}
+{% block title %}{{ item.metadata.title[0] }}{% endblock %}
+{% block content %}
+	<p>{% autoescape false %}{{ item.metadata.description[0] }}{% endautoescape %}</p>
+	<p><a href="http://{{ item.server }}{{ item.dir }}">go</a></p>
+	<table class="bordered-table zebra-striped soundlist">
+		<thead>
+			<tr>
+				<th>Filename</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% set i = 0 %}
+		{% for file in files %}
+			{% if 'MP3' in file.format %}
+			<tr>
+				<td><a href="http://archive.org/download/{{ item.metadata.identifier[0] }}{{ filenames[i] }}">{{ filenames[i] }}</a></td>
+				<td></td>
+			</tr>
+			{% endif %}
+			{% set i = i+1 %}
+		{% else %}
+		  <tr><td>There are currently no items.</td></tr>
+		{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

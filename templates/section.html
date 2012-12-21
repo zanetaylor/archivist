@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}{{ title }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<table class="bordered-table zebra-striped">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for item in items %}
+		{% if item.title is not empty %}
+		<tr>
+			<td><a href="/view/{{ item.identifier }}">{{ item.title }}</a></td>
+			<td>{{ item.description }}</td>
+		</tr>
+		{% endif %}
+   {% else %}
+      <tr><td>There are currently no items.</td></tr>
+   {% endfor %}
+	</tbody>
+</table>
+{% endblock %}
